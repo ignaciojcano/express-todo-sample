@@ -30,6 +30,12 @@ jobs:
             - node_modules
           key: v2-dependencies-{{ checksum "package-lock.json" }}
       - run: npm run test
+  deploy:
+    executor: heroku/default
+    steps:
+      - checkout
+      - heroku/install
+      - heroku/deploy-via-git
 
 workflows:
   build:
@@ -38,7 +44,7 @@ workflows:
       - test:
           requires:
             - build
-      - heroku/deploy-via-git:
+      - deploy:
           requires:
             - test
           filters:
