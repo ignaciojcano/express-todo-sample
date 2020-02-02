@@ -1,6 +1,6 @@
 version: 2.1
 
-install_deps: &install_deps |
+install_deps: &install_deps |-
   checkout
   restore_cache:
     keys:
