@@ -1,0 +1,21 @@
+{
+    "env": {
+        "commonjs": true,
+        "es6": true,
+        "node": true
+    },
+    "extends": [
+        "plugin:jest/recommended",
+        "airbnb-base"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "plugins": ["jest"],
+    "parserOptions": {
+        "ecmaVersion": 2018
+    },
+    "rules": {
+    }
+}
