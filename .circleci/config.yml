@@ -31,7 +31,8 @@ jobs:
           key: v2-dependencies-{{ checksum "package-lock.json" }}
       - run: npm run test
   deploy:
-    executor: heroku/default
+    docker:
+      - image: buildpack-deps:bionic
     steps:
       - checkout
       - heroku/install
