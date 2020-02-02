@@ -2,6 +2,8 @@ module.exports = {
   env: process.env.NODE_ENV,
   server: {
     port: 8000,
+    saltRounds: 10,
+    secret: 'themostinterestingsecretintheworld',
   },
   sequelize: {
     uri: 'postgres://todos:todos@localhost:5432/todos',
@@ -10,7 +12,7 @@ module.exports = {
       dialectOptions: {
         ssl: process.env.NODE_ENV === 'production',
       },
-      logging: false,
+      // logging: true,
       define: {
         underscored: true,
         timestamps: true,

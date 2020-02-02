@@ -3,7 +3,7 @@ const { Sequelize, DataTypes } = require('sequelize');
 const User = require('./user');
 const Todo = require('./todo');
 
-const sequelize = new Sequelize(config.get('sequelize.uri'), config.get('sequelize.options'));
+const sequelize = new Sequelize(config.get('sequelize.uri'), Object.assign({}, config.get('sequelize.options')));
 
 const models = {
   User: User(sequelize, DataTypes),
