@@ -1,28 +1,32 @@
 version: 2.1
-
-install_deps: &install_deps |-
-  checkout
-  restore_cache:
-    keys:
-      - v2-dependencies-{{ checksum "package-lock.json" }}
-  run: npm install
-  save_cache:
-    paths:
-      - node_modules
-    key: v2-dependencies-{{ checksum "package-lock.json" }}
-
 jobs:
   build:
     docker:
       - image: circleci/node:12.14.1
     steps:
-      - *install_deps
+      - checkout
+      - restore_cache:
+          keys:
+            - v2-dependencies-{{ checksum "package-lock.json" }}
+      - run: npm install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v2-dependencies-{{ checksum "package-lock.json" }}
       - run: npm run lint
   test:
     docker:
       - image: circleci/node:12.14.1
     steps:
-      - *install_deps
+      - checkout
+      - restore_cache:
+          keys:
+            - v2-dependencies-{{ checksum "package-lock.json" }}
+      - run: npm install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v2-dependencies-{{ checksum "package-lock.json" }}
       - run: npm run test
 
 workflows:
