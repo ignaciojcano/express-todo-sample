@@ -8,6 +8,6 @@ module.exports = {
       dialectOptions: {
         ssl: 'DATABASE_SSL',
       },
-    }
-  }
+    },
+  },
 };

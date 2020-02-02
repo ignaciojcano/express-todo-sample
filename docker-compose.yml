@@ -1,0 +1,26 @@
+version: "3.7"
+services:
+  postgres:
+    image: postgres:11-alpine
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: todos
+      POSTGRES_USER: todos
+      POSTGRES_DB: todos
+  api:
+    build:
+      dockerfile: .docker/Dockerfile
+      context: .
+    command: npm run dev
+    volumes:
+      - .:/usr/app/
+      - /usr/app/node_modules
+    depends_on:
+      - postgres
+    environment:
+      PORT: 8000
+      DATABASE_URL: postgres://todos:todos@postgres:5432/todos
+    ports:
+      - 8000:8000

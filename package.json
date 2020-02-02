@@ -5,10 +5,15 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node ./src/index.js",
+    "dev": "nodemon --watch {src,config}/**/*.js -x \"npm start\"",
     "lint": "eslint {__tests__,src,config}/**/*.js",
     "lint:fix": "eslint {__tests__,src,config}/**/*.js --fix",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "db:migrate": "sequelize-cli db:migrate"
+  },
+  "engines": {
+    "node": "12.14.1"
   },
   "repository": {
     "type": "git",

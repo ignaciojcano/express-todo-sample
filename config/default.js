@@ -4,7 +4,7 @@ module.exports = {
     port: 8000,
   },
   sequelize: {
-    uri: 'postgres://todos:todos@postgres:5432/todos',
+    uri: 'postgres://todos:todos@localhost:5432/todos',
     options: {
       dialect: 'postgres',
       dialectOptions: {
