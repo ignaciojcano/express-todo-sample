@@ -1,4 +1,11 @@
 version: "3.7"
+
+x-api-base: &base-api
+  image: node:12.14.1
+  working_dir: /usr/app
+  volumes:
+    - .:/usr/app
+
 services:
   postgres:
     image: postgres:11-alpine
@@ -10,13 +17,8 @@ services:
       POSTGRES_USER: todos
       POSTGRES_DB: todos
   api:
-    build:
-      dockerfile: .docker/Dockerfile
-      context: .
+    << : *base-api
     command: npm run dev
-    volumes:
-      - .:/usr/app/
-      - /usr/app/node_modules
     depends_on:
       - postgres
     environment:
@@ -24,3 +26,6 @@ services:
       DATABASE_URL: postgres://todos:todos@postgres:5432/todos
     ports:
       - 8000:8000
+  install:
+    << : *base-api
+    command: npm install
