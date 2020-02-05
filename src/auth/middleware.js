@@ -1,10 +1,10 @@
 const unless = require('express-unless');
 const passport = require('./');
 
-module.exports = function (middlewareOptions) {
-    const jwt = passport.authenticate('jwt', { session : false });
+module.exports = function () {
+  const jwt = passport.authenticate('jwt', { session: false });
 
-    jwt.unless = unless;
+  jwt.unless = unless;
 
-    return jwt;
+  return jwt;
 };

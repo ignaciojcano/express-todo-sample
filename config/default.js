@@ -5,6 +5,12 @@ module.exports = {
     saltRounds: 10,
     secret: 'themostinterestingsecretintheworld',
   },
+  intuit: {
+    clientId: '',
+    clientSecret: '',
+    env: 'sandbox',
+    redirectURI: 'http://localhost:8000/auth/intuit/callback',
+  },
   sequelize: {
     uri: 'postgres://todos:todos@localhost:5432/todos',
     options: {

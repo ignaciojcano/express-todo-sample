@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(passport.initialize());
 app.use(jwt().unless({
-    path: /\/auth.*$/
+  path: /\/auth.*$/,
 }));
 app.use(router);
 
