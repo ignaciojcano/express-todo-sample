@@ -10,7 +10,8 @@
     "lint:fix": "eslint {__tests__,src,config}/**/*.js --fix",
     "test": "jest",
     "test:watch": "jest --watch",
-    "db:migrate": "sequelize-cli db:migrate"
+    "db:migrate": "sequelize-cli db:migrate",
+    "db:migrate:undo": "sequelize-cli db:migrate:undo"
   },
   "engines": {
     "node": "12.14.1"

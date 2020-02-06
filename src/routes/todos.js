@@ -1,9 +1,14 @@
 const express = require('express');
+const { getTodos } = require('../services/todos');
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.json({ message: 'implement me!' });
+router.get('/', async (req, res, next) => {
+  try {
+    res.json(await getTodos(req.user));
+  } catch (e) {
+    next(e);
+  }
 });
 
 router.post('/', (req, res) => {
