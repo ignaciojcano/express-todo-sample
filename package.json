@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/ignaciojcano/express-todo-sample#readme",
   "dependencies": {
-    "bcrypt": "^3.0.7",
+    "bcrypt": "^5.0.0",
     "config": "^3.2.5",
     "express": "^4.17.1",
     "express-unless": "^0.5.0",
