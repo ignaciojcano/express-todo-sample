@@ -32,7 +32,7 @@
     "express": "^4.17.1",
     "express-unless": "^0.5.0",
     "intuit-oauth": "^2.0.2",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "node-quickbooks": "^2.0.33",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
